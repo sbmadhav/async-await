@@ -68,7 +68,7 @@ module.exports = {
         'valid-jsdoc': 1,
         'array-bracket-spacing': [ 2, 'always', { 'singleValue': true } ],
         'block-spacing': 2,
-        'brace-style': [ 2, 'stroustrup' ],
+        'brace-style': [ 2, '1tbs', { 'allowSingleLine': true } ],
         'comma-spacing': [ 2, { 'before': false, 'after': true } ],
         'comma-style': 0,
         'computed-property-spacing': [ 2, 'always' ],

@@ -1,14 +1,25 @@
 const fetch = require( 'node-fetch' );
+const SUCCESS_HTTP_STATUS_CODE = 200;
 
 async function showGitHubUser( handle ) {
     const url = `https://api.github.com/users/${handle}`;
     const response = await fetch( url );
-    const user = await response.json();
-    return user;
+    const body = await response.json();
+
+    if ( response.status !== SUCCESS_HTTP_STATUS_CODE ) {
+        throw Error( body.message );
+    }
+
+    return body;
 }
 
 ( async() => {
-    const user = await showGitHubUser( 'ryanfitzer' );
-    console.log( user.name );
-    console.log( user.location );
+    try {
+        const user = await showGitHubUser( 'idontexistinthisworld$$$!!!' );
+        console.log( user.name );
+        console.log( user.location );
+    } catch ( err ) {
+        console.log( err );
+    }
+
 } )();
