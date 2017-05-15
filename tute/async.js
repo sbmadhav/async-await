@@ -7,7 +7,7 @@ async function showGitHubUser( handle ) {
     return user;
 }
 
-( async function () {
+( async() => {
     const user = await showGitHubUser( 'ryanfitzer' );
     console.log( user.name );
     console.log( user.location );
