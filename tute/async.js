@@ -7,9 +7,8 @@ async function showGitHubUser( handle ) {
     return user;
 }
 
-showGitHubUser( 'ryanfitzer' )
-    .then( user => {
-        console.log( user.name );
-        console.log( user.location );
-
-    } );
+( async function () {
+    const user = await showGitHubUser( 'ryanfitzer' );
+    console.log( user.name );
+    console.log( user.location );
+} )();
